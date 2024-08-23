@@ -1,0 +1,260 @@
+:root{
+    --azul1:#161d25;
+    --azul2:#212a34;
+    --azul3:#434b54;
+    --verde1:#72da38;
+    --verde2:#baf77b;
+}
+
+@font-face {
+    font-family:aldo;
+    src: url(fuentes/AldotheApache.ttf);
+}
+
+@font-face {
+    font-family:caviar;
+    src: url(fuentes/CaviarDreams_Italic.ttf);
+}
+
+body{
+    background-color:var(--azul2);
+}
+
+header{
+    background-color:var(--azul1);
+    color:var(--verde1);
+    margin:0vw 2vw 0vw 2vw;
+    padding:1vw;
+    border:0.2vw solid #baf77b;
+    border-radius:1vw;
+    font-family:caviar;
+    font-size:2vw;
+    letter-spacing:0.5vw;
+    height:5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+header section{
+    display: grid;
+    grid-template-columns:70% 30%;
+    width:100%;
+}
+
+header section h1{
+    text-align: center;
+}
+
+header section nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+main{
+    background-color:#161d25;
+    margin:1vw 2vw 0vw 2vw;
+    padding:1vw;
+    border:0.2vw solid #baf77b;
+    border-radius:1vw;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:2vw;
+    justify-content: center;
+}
+
+.sinfin{
+    display:grid;
+    grid-template-columns:70% 30%;
+}
+
+.cadatarea{
+    border:0.2vw solid var(--verde1);
+    border-radius:2vw;
+    background-color: #434b54;
+    width:25vw;
+    padding:1vw;
+    font-family: caviar;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cadatarea:hover{
+    box-shadow:0px 0px 20px 4px var(--verde2);
+    transform: scale(1.09);
+}
+
+.cadatarea hr{
+    background-color:var(--verde1);
+    border:0;
+    height:0.1vw;
+}
+
+.fecha{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap:2vw;
+}
+
+
+.s-nombre section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap:2vw;
+}
+
+.s-datos section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cadatarea h1{
+    font-size:1.5vw;
+    margin:1vw;
+}
+
+
+
+.cadatarea h2{
+    font-size:0.7vw;
+    color:rgba(255, 255, 255, 0.62);
+}
+
+.cadatarea p{
+    font-size:1vw;
+    color:rgb(255, 255, 255);
+    font-weight:bold;
+}
+
+.fecha p{
+    font-size:1vw;
+}
+
+
+.s-datos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap:1vw;
+}
+
+.s-datos section{
+    column-gap:1vw;
+    width:10vw;
+    justify-content: center;
+}
+
+.s-datos section img{
+    width:2vw;
+}
+
+.pendiente{
+    background-color:rgb(255, 0, 0);
+    width: 1.5vw;
+    height:1.5vw;
+    border-radius:50%; 
+    box-shadow:0px 0px 20px 4px #d40000;
+}
+
+.proceso{
+    background-color:rgb(242, 255, 0);
+    width: 1.5vw;
+    height:1.5vw;
+    border-radius:50%;
+    box-shadow:0px 0px 20px 4px rgb(242, 255, 0);
+}
+
+.terminado{
+    background-color:rgb(33, 255, 33);
+    width: 1.5vw;
+    height:1.5vw;
+    border-radius:50%; 
+    box-shadow:0px 0px 20px 4px rgb(33, 255, 33);
+}
+
+.nombrestado{
+    display:grid;
+    grid-template-columns:70% 30%;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    padding:0;
+}
+
+.nombrestado h1{
+    color: var(--verde1);
+}
+
+.estado{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin:1vw 1vw 2vw 0vw;
+}
+
+#infocolores{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap:5vw;
+    margin:0vw 2vw 2vw 2vw;
+}
+
+
+.cadainfo{
+    display: flex;
+    align-items: center;
+    font-size:0.7vw;
+    color:rgb(255, 255, 255);
+    font-family:caviar;
+    column-gap:0.5vw;
+}
+
+.btns img{
+    width:3vw;
+}
+
+.btns button{
+    background-color:rgba(255, 255, 255, 0);
+    border:none;
+}
+
+.btns{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+    column-gap:2vw;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    margin:1vw;
+}
+
+nav button{
+    background-color:var(--azul1);
+    color:var(--verde1);
+    border:0.1vw solid var(--verde2);
+    box-shadow:0px 0px 1vw 0.1vw var(--verde2);
+    border-radius:1vw;
+    height:4vw;
+    width:4vw;
+    font-size:3vw;
+}
+
+nav button:hover{
+    transform: scale(1.09);
+    box-shadow:0px 0px 2vw 0.1vw var(--verde2);
+}
