@@ -4,6 +4,7 @@
     --azul3:#434b54;
     --verde1:#72da38;
     --verde2:#baf77b;
+    --blancogris:rgba(255, 255, 255, 0.62);
 }
 
 @font-face {
@@ -228,6 +229,14 @@ main{
     border:none;
 }
 
+#btn-eliminar:hover{
+    content:url("img/eliminar2.png");
+}
+
+#btn-editar:hover{
+    content:url("img/editar2.png");
+}
+
 .btns{
     display: flex;
     flex-direction: row;
@@ -257,4 +266,169 @@ nav button{
 nav button:hover{
     transform: scale(1.09);
     box-shadow:0px 0px 2vw 0.1vw var(--verde2);
+}
+
+
+/* Edición de las estrellas del formulario */
+.valoracion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    display: inline-block;
+}
+.valoracion > input {
+    display: none;
+}
+.valoracion > label {
+    color: #ff0000;
+    font-size: 1.5vw;
+    padding: 0;
+    cursor: pointer;
+}
+
+.valoracion > input:checked ~ label {
+    color: var(--verde2);
+}
+.valoracion > label:hover, .valoracion > label:hover ~ label {
+    color: var(--verde2);
+}
+
+/* EDICIÓN DEL FORMULARIO */
+#sectionformulario{
+    
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, height 0.5s ease;
+
+    background-color: var(--azul1);
+    border:0.2vw solid var(--verde2);
+    border-radius:1vw;
+    margin:1vw 2vw 0vw 2vw;
+    padding:1vw;
+    color: white;
+    font-family:caviar;
+}
+
+#sectionformulario.cajavisible{
+    opacity:1;
+    height:100%;
+}
+
+.cajaoculta{
+    display: none;
+}
+
+#formulariocrear{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    row-gap:1vw;
+}
+
+.formsection{
+    display: flex;
+    column-gap:4vw;
+}
+
+.formsection input,select{
+    border-radius:0.5vw;
+    border: none;
+    background-color:var(--azul3);
+    border:0.2vw solid var(--verde2);
+    color:white;
+    padding:0.5vw;
+    font-family:caviar;
+    font-size:1vw;
+}
+
+.formsection label{
+    color:rgba(255, 255, 255, 0.62) ;
+}
+
+.valoracion label{
+    color: #ffffff;
+}
+
+#sectionbotonesformulario input{
+    background-color: var(--verde2);
+    color:black;
+    border:0;
+    border-radius:0.5vw;
+    padding:0.5vw;
+    width:4vw;
+}
+
+#sectionbotonesformulario input:hover{
+    background-color: var(--azul3);
+    color:rgb(255, 255, 255);
+    border:0.1vw solid var(--verde2);
+}
+
+
+/* Edición de card de edicion */
+
+.modal-oculto {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    width:100%;
+    height:100%;
+    background-color:rgba(0, 0, 0, 0.262);
+}
+
+
+.modal-contenido {
+    background-color: var(--azul1);
+    margin: 10% auto;
+    padding: 20px;
+    border: 0.2vw solid var(--verde2);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#form-editar{
+    display: flex;
+    flex-direction: column;
+    row-gap:1vw;
+    color: var(--blancogris);
+    font-family:caviar;
+}
+
+#form-editar div{
+    display:flex;
+    flex-direction: column;
+}
+
+#div-val div{
+    display:flex;
+    flex-direction: row;
+    justify-content:end;
+}
+
+#form-editar input{
+    background-color: var(--azul3);
+    color:rgb(255, 255, 255);
+    border:0.2vw solid var(--verde2);
+    border-radius:0.5vw;
+    padding:0.5vw;
 }
