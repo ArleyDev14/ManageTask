@@ -118,9 +118,10 @@
                     <label for="genero">Genero</label>
                     <select name="genero" id="genero" required>
                         <option value="acción">Acción</option>
-                        <option value="Romance">Romance</option>
-                        <option value="Terror">Terror</option>
-                        <option value="Historia">Historia</option>
+                        <option value="romance">Romance</option>
+                        <option value="terror">Terror</option>
+                        <option value="historia">Historia</option>
+                        <option value="otro">Otro</option>
                     </select>
                 </div>
                 <div>
@@ -130,6 +131,7 @@
                         <option value="netflix">Netflix</option>
                         <option value="hbo">Hbo</option>
                         <option value="amazon">Amazon</option>
+                        <option value="otro">Otro</option>
                     </select>
                 </div>
                 <div>
@@ -141,17 +143,6 @@
 
             <!-- Section 3 -->
             <section id="formsection3" class="formsection">
-                <div>
-                    <!-- Solicitud valoración -->
-                    <label>Valoracion</label>
-                    <div class="valoracion">
-                        <input type="radio" id="estrella5" name="Valoracion" value="5"><label class="estrella" for="estrella5" title="Excelente">★</label>
-                        <input type="radio" id="estrella4" name="Valoracion" value="4"><label class="estrella" for="estrella4" title="Muy bueno">★</label>
-                        <input type="radio" id="estrella3" name="Valoracion" value="3"><label class="estrella" for="estrella3" title="Bueno">★</label>
-                        <input type="radio" id="estrella2" name="Valoracion" value="2"><label class="estrella" for="estrella2" title="Regular">★</label>
-                        <input type="radio" id="estrella1" name="Valoracion" value="1"><label class="estrella" for="estrella1" title="Malo">★</label>
-                    </div>
-                </div>
                 <div>
                     <!-- Solicitud reseña -->
                     <label for="resena">Reseña</label>
@@ -168,15 +159,82 @@
 
     <!-- ESPACIO, CONTENEDOR DE CARDS -->
     <main>
-        <section id="infocolores">
+        <form action="" id="formfiltro">
+            <!-- Filtro por estado -->
+            <div class="cadaopc">
+                <label for="filtro-estado">Estado</label>
+                <select name="filtro-estado" id="filtroporestado">
+                    <option value="todos">Todos</option>
+                    <option value="proceso">En proceso</option>
+                    <option value="terminado">Terminado</option>
+                    <option value="pendiente">Pendiente</option>
+                </select>
+            </div>
+            
+            <!-- Filtro por genero -->
+            <div class="cadaopc">
+                <label for="filtro-genero">Genero</label>
+                <select name="filtro-genero" id="filtroporgenero">
+                    <option value="todos">Todos</option>
+                    <option value="acción">acción</option>
+                    <option value="terror">Terror</option>
+                    <option value="historia">Historia</option>
+                    <option value="romance">Romance</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+
+            <!-- Filtro por formato -->
+            <div class="cadaopc">
+                <label for="filtro-formato">Formato</label>
+                <select name="filtro-formato" id="filtroporformato">
+                    <option value="todos">Todos</option>
+                    <option value="libro">Libro</option>
+                    <option value="pelicula">Pelicula</option>
+                    <option value="serie">Serie</option>
+                </select>
+            </div>
+
+            <!-- Filtro por plataforma -->
+            <div class="cadaopc">
+                <label for="filtro-plataforma">Plataforma</label>
+                <select name="filtro-plataforma" id="filtroporplataforma">
+                    <option value="todas">Todas</option>
+                    <option value="netflix">Netflix</option>
+                    <option value="hbo">HBO</option>
+                    <option value="amazon">Amazon</option>
+                </select>
+            </div>
+
+            <!-- Filtro por valoración -->
+            <div class="cadaopc">
+                <label for="filtro-val">Valoración</label>
+                <select name="filtro-val" id="filtroporval">
+                    <option value="todas">Todas</option>
+                    <option value="5">5 estrellas</option>
+                    <option value="4">4 estrellas</option>
+                    <option value="3">3 estrellas</option>
+                    <option value="2">2 estrellas</option>
+                    <option value="1">1 estrella</option>
+                </select>
+            </div>
+
+            <!-- Filtro por nombre -->
+            <div class="cadaopc">
+                <label for="filtro-val">Nombre</label>
+                <input type="text" id="busquedapornombre" placeholder="Nombre...">
+            </div>
+        </form>
+
+        <!-- <section id="infocolores">
             <div id="pendiente" class="cadainfo"><h3>Sin iniciar</h3></p><div class="pendiente"></div></div>
             <div id="enproceso" class="cadainfo"><h3>En proceso</h3><div class="proceso"></div></div>
             <div id="terminado" class="cadainfo"><h3>Terminado</h3><div class="terminado"></div></div>
-        </section>
+            <div id="todos" class="cadainfo"><h3>Todos</h3 class="todos"><div class="todos"></div></div>
+        </section> -->
         <section id="container"></section>
     </main>
+
     
-    <!-- FILTRO BUSQUEDA -->
-     
 </body>
 </html>

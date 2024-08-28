@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded",()=>{
             valoracion = ``
 
             if(proceso.plataforma === "netflix"){
-                plataforma = `<img src="img/netflix.png">`
+                plataforma = `<img alt="netflix" data-plataforma="netflix" src="img/netflix.png">`
             }else if(proceso.plataforma === "amazon"){
-                plataforma = `<img src="img/amazon.png">`
+                plataforma = `<img alt="amazon" data-plataforma="amazon" src="img/amazon.png">`
             }else if(proceso.plataforma === "hbo"){
-                plataforma = `<img src="img/hbo.png">`
+                plataforma = `<img alt="hbo" data-plataforma="hbo" src="img/hbo.png">`
             }else{
                 plataforma = proceso.plataforma
             };
@@ -34,7 +34,9 @@ document.addEventListener("DOMContentLoaded",()=>{
                 valoracion = `<img src="img/estrella4.png">`
             }else if(proceso.valoracion === "5"){
                 valoracion = `<img src="img/estrella5.png">`
-            };
+            }else if(proceso.valoracion === "0"){
+                valoracion = "0"
+            }
             
             if(proceso.estado === "pendiente"){
                 estado = `<div class="pendiente"></div>`
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded",()=>{
                 estado = `<div class="terminado"></div>`
             }
             to_html += `
-                    <section class="cadatarea">
+                    <section class="cadatarea" data-plataforma="${proceso.plataforma}">
                     <div class="nombrestado">
                         <h1>${proceso.nombre}</h1>
                         <section class="estado">
@@ -58,16 +60,16 @@ document.addEventListener("DOMContentLoaded",()=>{
                                     <h2>Genero: </h2><p class="genero">${proceso.genero}</p>
                                 </section>
                                 <section>
-                                    <h2>Formato: </h2><p>${proceso.formato}</p>
+                                    <h2>Formato: </h2><p class="formato-texto">${proceso.formato}</p>
                                 </section>
                             </div>
                         </section>
                         <section class="s-datos">
                             <section>
-                                <h2>Plataforma </h2><p class="plataforma">${plataforma}</p>
+                                <h2>Plataforma </h2><p class="plataforma-texto plataforma">${plataforma}</p>
                             </section>
                             <section>
-                                <h2>valoración </h2>${valoracion}
+                                <h2>valoración: </h2><div class="num_val">${valoracion}</div>
                             </section>
                         </section>
                     </section>
@@ -120,7 +122,7 @@ document.getElementById('formulariocrear').addEventListener('submit', function(e
         genero: document.getElementById('genero').value,
         plataforma: document.getElementById('plataforma').value,
         fechafin: document.getElementById('fechafin').value,
-        valoracion: document.querySelector('input[name="Valoracion"]:checked').value,
+        valoracion: "0",
         resena: document.getElementById('resena').value,
         id: id+= 1
     };
@@ -287,54 +289,102 @@ document.getElementById('form-editar').addEventListener('submit', function(event
 
 
 //FILTRO Y BUSQUEDA
-document.getElementById('pendiente').addEventListener('click', function() {
-    const tarjetas = document.querySelectorAll('.cadatarea'); 
-    tarjetas.forEach(function(tarjeta) {
-        const estadoElemento = tarjeta.querySelector('.estado div'); 
-        const estado = estadoElemento.classList.contains('pendiente'); 
-        if (estado) {
-            tarjeta.style.display = 'block';
+document.getElementById('filtroporestado').addEventListener('change', function() {
+    const selectedValue = this.value;
+    const allCards = document.querySelectorAll('.cadatarea');
+
+    allCards.forEach(card => {
+        const estado = card.querySelector('.estado > div').classList.contains(selectedValue);
+        
+        if (selectedValue === "todos" || estado) {
+            card.style.display = 'block'; // Mostrar la card
         } else {
-            tarjeta.style.display = 'none'; 
+            card.style.display = 'none'; // Ocultar la card
         }
     });
 });
 
-document.getElementById('enproceso').addEventListener('click', function() {
-    const tarjetas = document.querySelectorAll('.cadatarea'); 
-    tarjetas.forEach(function(tarjeta) {
-        const estadoElemento = tarjeta.querySelector('.estado div'); 
-        const estado = estadoElemento.classList.contains('enproceso'); 
-        if (estado) {
-            tarjeta.style.display = 'block';
+document.getElementById('filtroporgenero').addEventListener('change', function() {
+    const selectedGenre = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.cadatarea');
+
+    cards.forEach(card => {
+        const cardGenre = card.querySelector('.s-nombre p').textContent.toLowerCase();
+
+        if (selectedGenre === 'todos' || cardGenre.includes(selectedGenre)) {
+            card.style.display = 'block'; // Muestra la card si coincide con el género seleccionado
         } else {
-            tarjeta.style.display = 'none'; 
+            card.style.display = 'none'; // Oculta la card si no coincide
         }
     });
 });
 
-document.getElementById('enproceso').addEventListener('click', function() {
-    const tarjetas = document.querySelectorAll('.cadatarea'); 
-    tarjetas.forEach(function(tarjeta) {
-        const estadoElemento = tarjeta.querySelector('.estado div'); 
-        const estado = estadoElemento.classList.contains('proceso'); 
-        if (estado) {
-            tarjeta.style.display = 'block';
+// Función para filtrar por formato
+function filtrarPorFormato() {
+    const formatoSeleccionado = document.getElementById('filtroporformato').value.toLowerCase();
+    const cards = document.querySelectorAll('.cadatarea');
+
+    cards.forEach(card => {
+        const formatoCard = card.querySelector('.formato-texto').textContent.toLowerCase();
+
+        if (formatoSeleccionado === 'todos' || formatoCard === formatoSeleccionado) {
+            card.style.display = 'block'; // Mostrar la card
         } else {
-            tarjeta.style.display = 'none'; 
+            card.style.display = 'none'; // Ocultar la card
+        }
+    });
+}
+document.getElementById('filtroporformato').addEventListener('change', filtrarPorFormato);
+
+
+// Filtro por plataforma
+document.getElementById('filtroporplataforma').addEventListener('change', function() {
+    const plataformaSeleccionada = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.cadatarea');
+
+    cards.forEach(card => {
+        const plataformaCard = card.getAttribute('data-plataforma').toLowerCase().trim();
+
+        if (plataformaSeleccionada === 'todas' || plataformaCard === plataformaSeleccionada) {
+            card.style.display = 'block'; // Mostrar la card
+        } else {
+            card.style.display = 'none'; // Ocultar la card
         }
     });
 });
 
-document.getElementById('terminado').addEventListener('click', function() {
-    const tarjetas = document.querySelectorAll('.cadatarea'); 
-    tarjetas.forEach(function(tarjeta) {
-        const estadoElemento = tarjeta.querySelector('.estado div'); 
-        const estado = estadoElemento.classList.contains('terminado'); 
-        if (estado) {
-            tarjeta.style.display = 'block';
+
+//Filtro por valoración
+document.getElementById('filtroporval').addEventListener('change', function() {
+    const valorSeleccionado = this.value;
+    const cards = document.querySelectorAll('.cadatarea');
+
+    cards.forEach(card => {
+        const valoracionCard = card.querySelector('.num_val img') ? card.querySelector('.num_val img').src : '';
+
+        // Extraer la cantidad de estrellas desde el nombre del archivo (e.g., "estrella4.png" -> 4)
+        const numEstrellas = valoracionCard.match(/estrella(\d)\.png/);
+        const estrellas = numEstrellas ? numEstrellas[1] : "0";  // 0 si no hay estrellas
+
+        if (valorSeleccionado === "todas" || estrellas === valorSeleccionado) {
+            card.style.display = 'block';
         } else {
-            tarjeta.style.display = 'none'; 
+            card.style.display = 'none';
+        }
+    });
+});
+
+// Filtro por nombre, busqueda
+document.getElementById('busquedapornombre').addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.cadatarea');
+
+    cards.forEach(card => {
+        const nombre = card.querySelector('h1').textContent.toLowerCase();
+        if (nombre.includes(searchTerm)) {
+            card.style.display = '';  // Mostrar la card si coincide
+        } else {
+            card.style.display = 'none';  // Ocultar la card si no coincide
         }
     });
 });

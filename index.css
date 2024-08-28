@@ -182,6 +182,14 @@ main{
     box-shadow:0px 0px 20px 4px rgb(33, 255, 33);
 }
 
+.todos{
+    background-color:rgb(84, 23, 239);
+    width: 1.5vw;
+    height:1.5vw;
+    border-radius:50%; 
+    box-shadow:0px 0px 20px 4px rgb(84, 23, 239);
+}
+
 .nombrestado{
     display:grid;
     grid-template-columns:70% 30%;
@@ -218,6 +226,26 @@ main{
     color:rgb(255, 255, 255);
     font-family:caviar;
     column-gap:0.5vw;
+}
+
+.cadainfo:hover{
+    transform: scale(1.20);
+}
+
+#terminado:hover{
+    color: var(--verde1);
+}
+
+#pendiente:hover{
+    color: red;
+}
+
+#enproceso:hover{
+    color:yellow;
+}
+
+#todos:hover{
+    color:rgb(128, 80, 249);
 }
 
 .btns img{
@@ -356,6 +384,7 @@ nav button:hover{
     border-radius:0.5vw;
     padding:0.5vw;
     width:4vw;
+    font-family:caviar;
 }
 
 #sectionbotonesformulario input:hover{
@@ -399,6 +428,10 @@ nav button:hover{
     font-weight: bold;
 }
 
+.num_val{
+    color:white;
+}
+
 .cerrar:hover,
 .cerrar:focus {
     color: black;
@@ -431,4 +464,158 @@ nav button:hover{
     border:0.2vw solid var(--verde2);
     border-radius:0.5vw;
     padding:0.5vw;
+}
+
+/* EDICION FILTROS */
+.cadaopc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap:0.3vw;
+    font-size:1vw;
+}
+
+.cadaopc label{
+    color: var(--blancogris);
+    font-family: caviar;
+    font-size:1vw;
+}
+
+#formfiltro{
+    display: flex;
+    flex-direction: row;
+    column-gap:2vw;
+    justify-content: center;
+    margin-bottom: 2vw;
+}
+
+.cadaopc input{
+    background-color: var(--azul3);
+    border:0.2vw solid var(--verde2);
+    border-radius:0.5vw;
+    color: white;
+    height:2vw;
+    font-size:1vw;
+}
+
+@media (max-width: 480px) {
+    header section{
+        width: 100%;
+    }
+
+    header section h1{
+        font-size:10vw;
+    }
+
+    header{
+        height:12vw;
+    }
+
+    header section nav button{
+        justify-content: center;
+        align-items: center;
+        width:10vw;
+        height:10vw;
+        font-size:9vw;
+    }
+
+    header section nav{
+        display: flex;
+    }
+
+    #formulariocrear input{
+        font-size:3vw;
+    }
+
+    #formulariocrear label{
+        font-size:3vw;
+    }
+
+    #formulariocrear select{
+        font-size:3vw;
+    }
+
+    #sectionbotonesformulario input{
+        font-size:3vw;
+        width:100%;
+        padding:0.5vw 1vw 0.5vw 1vw;
+    }
+
+    #formulariocrear{
+        row-gap:2vw;
+    }
+
+    #formfiltro{
+        display: flex;
+        flex-wrap: wrap;
+        column-gap:4vw;
+        row-gap:3vw;
+    }
+
+    #formfiltro div label{
+        font-size:3vw;
+        height:4vw;
+    }
+
+    #formfiltro div input, select{
+        font-size:2vw;
+    }
+
+    #container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cadatarea{
+        width:40vw;
+    }
+
+    .cadatarea .nombrestado h1{
+        font-size:4vw;
+    }
+
+    .estado div{
+        width:4vw;
+        height:4vw;
+    }
+
+    .s-nombre div section h2{
+        font-size:1.5vw;
+    }
+
+    .s-nombre div section p{
+        font-size:2.5vw;
+    }
+    
+    .s-datos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .s-datos section h2{
+        font-size:1.5vw;
+    }
+
+    .s-datos section p img{
+        width:5vw;
+    }
+    .s-datos section div img{
+        width:5vw;
+    }
+
+    .cadatarea h2{
+        font-size: 1.5vw;
+    }
+
+    .cadatarea p{
+        font-size:2vw;
+    }
+
+.btns button img{
+    width:6vw;
+}
+    
 }
