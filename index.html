@@ -8,6 +8,7 @@
     <title>ManageTask</title>
 </head>
 <body>
+
     <!-- MODULO DE EDICIÓN DE CADA CARD -->
     <div id="modal-editar" class="modal-oculto">
         <div class="modal-contenido">
@@ -34,6 +35,7 @@
                         <option value="romance">Romance</option>
                         <option value="terror">Terror</option>
                         <option value="historia">Historia</option>
+                        <option value="otro">Otro</option>
                     </select>
                 </div>
 
@@ -43,6 +45,10 @@
                         <option value="netflix">Netflix</option>
                         <option value="hbo">HBO</option>
                         <option value="amazon">Amazon</option>
+                        <!-- Opciones libros -->
+                        <option value="wattpad" class="libro-opc" style="display:none;">Wattpad</option>
+                        <option value="scribd" class="libro-opc" style="display:none;">Scribd</option>
+                        <option value="fisico" class="libro-opc" style="display:none;">Fisico</option>
                     </select>
                 </div>
 
@@ -80,6 +86,7 @@
         </div>
     </div>
 
+
     <!-- HEADER CON BOTON DE CREAR -->
     <header>
         <section>
@@ -89,6 +96,7 @@
             </nav>
     </section>
     </header>
+
 
     <!-- FORMULARIO DE CREAR CARD -->
     <section id="sectionformulario" class="cajaoculta">
@@ -104,8 +112,8 @@
                     <!-- solicitud formato -->
                     <label for="formato">Tipo de recurso</label>
                     <select name="formato" id="formato" required>
-                        <option value="libro">Libro</option>
                         <option value="pelicula">Pelicula</option>
+                        <option value="libro">Libro</option>
                         <option value="serie">Serie</option>
                     </select>
                  </div>
@@ -132,6 +140,10 @@
                         <option value="hbo">Hbo</option>
                         <option value="amazon">Amazon</option>
                         <option value="otro">Otro</option>
+                        <!-- Opciones para Libros -->
+                        <option value="wattpad" class="libro-opc" style="display:none;">Wattpad</option>
+                        <option value="scribd" class="libro-opc" style="display:none;">Scribd</option>
+                        <option value="fisico" class="libro-opc" style="display:none;">Fisico</option>
                     </select>
                 </div>
                 <div>
@@ -157,8 +169,10 @@
         </form>
     </section>
 
-    <!-- ESPACIO, CONTENEDOR DE CARDS -->
+
+    <!-- Cntenedor de filtro y cards -->
     <main>
+        <!-- Formulario para filtrar -->
         <form action="" id="formfiltro">
             <!-- Filtro por estado -->
             <div class="cadaopc">
@@ -203,6 +217,9 @@
                     <option value="netflix">Netflix</option>
                     <option value="hbo">HBO</option>
                     <option value="amazon">Amazon</option>
+                    <option value="wattpad">Wattpad</option>
+                    <option value="scribd">Scribd</option>
+                    <option value="fisico">Fisico</option>
                 </select>
             </div>
 
@@ -226,15 +243,17 @@
             </div>
         </form>
 
+        <!-- Esta es una seccion que tenia como botones, para solo filtrar por estados -->
         <!-- <section id="infocolores">
             <div id="pendiente" class="cadainfo"><h3>Sin iniciar</h3></p><div class="pendiente"></div></div>
             <div id="enproceso" class="cadainfo"><h3>En proceso</h3><div class="proceso"></div></div>
             <div id="terminado" class="cadainfo"><h3>Terminado</h3><div class="terminado"></div></div>
             <div id="todos" class="cadainfo"><h3>Todos</h3 class="todos"><div class="todos"></div></div>
         </section> -->
+
+        <!-- ESPACIO, CONTENEDOR DE CARDS -->
         <section id="container"></section>
     </main>
-
     
 </body>
 </html>

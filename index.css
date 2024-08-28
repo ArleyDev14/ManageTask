@@ -1,3 +1,4 @@
+/* CONFIGURACION DE VARIABLES */
 :root{
     --azul1:#161d25;
     --azul2:#212a34;
@@ -16,11 +17,15 @@
     font-family:caviar;
     src: url(fuentes/CaviarDreams_Italic.ttf);
 }
+/*#################################################################################*/
 
+/* CUERPO O FONDO */
 body{
     background-color:var(--azul2);
 }
+/*#################################################################################*/
 
+/* El header con el boton */
 header{
     background-color:var(--azul1);
     color:var(--verde1);
@@ -54,7 +59,9 @@ header section nav{
     justify-content: end;
     align-items: center;
 }
+/*#################################################################################*/
 
+/* El contenedor de los filtros y las cards */
 main{
     background-color:#161d25;
     margin:1vw 2vw 0vw 2vw;
@@ -70,7 +77,9 @@ main{
     gap:2vw;
     justify-content: center;
 }
+/*#################################################################################*/
 
+/* Edicion de cada card */
 .sinfin{
     display:grid;
     grid-template-columns:70% 30%;
@@ -104,7 +113,6 @@ main{
     column-gap:2vw;
 }
 
-
 .s-nombre section{
     display: flex;
     flex-direction: row;
@@ -123,8 +131,6 @@ main{
     margin:1vw;
 }
 
-
-
 .cadatarea h2{
     font-size:0.7vw;
     color:rgba(255, 255, 255, 0.62);
@@ -139,7 +145,6 @@ main{
 .fecha p{
     font-size:1vw;
 }
-
 
 .s-datos{
     display: flex;
@@ -218,7 +223,6 @@ main{
     margin:0vw 2vw 2vw 2vw;
 }
 
-
 .cadainfo{
     display: flex;
     align-items: center;
@@ -273,7 +277,9 @@ main{
     justify-content: center;
     column-gap:2vw;
 }
+/*#################################################################################*/
 
+/* Navegador (Boton con el "+") */
 nav{
     display: flex;
     justify-content: center;
@@ -296,6 +302,7 @@ nav button:hover{
     box-shadow:0px 0px 2vw 0.1vw var(--verde2);
 }
 
+/*#################################################################################*/
 
 /* Edición de las estrellas del formulario */
 .valoracion {
@@ -303,9 +310,11 @@ nav button:hover{
     unicode-bidi: bidi-override;
     display: inline-block;
 }
+
 .valoracion > input {
     display: none;
 }
+
 .valoracion > label {
     color: #ff0000;
     font-size: 1.5vw;
@@ -316,9 +325,11 @@ nav button:hover{
 .valoracion > input:checked ~ label {
     color: var(--verde2);
 }
+
 .valoracion > label:hover, .valoracion > label:hover ~ label {
     color: var(--verde2);
 }
+/*#################################################################################*/
 
 /* EDICIÓN DEL FORMULARIO */
 #sectionformulario{
@@ -392,7 +403,7 @@ nav button:hover{
     color:rgb(255, 255, 255);
     border:0.1vw solid var(--verde2);
 }
-
+/*#################################################################################*/
 
 /* Edición de card de edicion */
 
@@ -465,6 +476,7 @@ nav button:hover{
     border-radius:0.5vw;
     padding:0.5vw;
 }
+/*#################################################################################*/
 
 /* EDICION FILTROS */
 .cadaopc{
@@ -499,7 +511,9 @@ nav button:hover{
     font-size:1vw;
 }
 
-@media (max-width: 480px) {
+/*#################################################################################*/
+/* Edicion para celulares */
+@media (max-width: 750px) {
     header section{
         width: 100%;
     }
